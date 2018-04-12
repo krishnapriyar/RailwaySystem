@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.625" name="rail">
+  <DataContextMoniker Name="/railDataContext" />
+  <nestedChildShapes>
+    <classShape Id="718a979d-3214-4869-8c9d-e919e356f323" absoluteBounds="3, 3.75, 2, 1.9631982421875">
+      <DataClassMoniker Name="/railDataContext/Booking" />
+      <nestedChildShapes>
+        <elementListCompartment Id="5ff9897a-73ad-475e-84b1-cdf235849f73" absoluteBounds="3.015, 4.21, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="daf44bc5-d000-4ba1-8503-d56dd8c5d122" absoluteBounds="5.75, 0.5, 2, 2.3478011067708335">
+      <DataClassMoniker Name="/railDataContext/Card" />
+      <nestedChildShapes>
+        <elementListCompartment Id="035ee271-70a5-4d8c-bb1e-2bce65e1f910" absoluteBounds="5.765, 0.96, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="a94af621-e3e8-4456-a2dd-3adb6e1baad2" absoluteBounds="3.125, 0.5, 2, 2.3478011067708335">
+      <DataClassMoniker Name="/railDataContext/Customer" />
+      <nestedChildShapes>
+        <elementListCompartment Id="d4811393-2f26-49a8-9465-86ffe90331a6" absoluteBounds="3.1399999999999997, 0.96, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(4.0625 : 2.84780110677083); (4.0625 : 3.75)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/railDataContext/Customer/Customer_Booking" />
+      <nodes>
+        <classShapeMoniker Id="a94af621-e3e8-4456-a2dd-3adb6e1baad2" />
+        <classShapeMoniker Id="718a979d-3214-4869-8c9d-e919e356f323" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="af13429d-b5b1-408f-a216-deb787744216" absoluteBounds="5.875, 3.25, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/railDataContext/Payment" />
+      <nestedChildShapes>
+        <elementListCompartment Id="60fe5b15-593e-4d8e-a4bc-6b492281269a" absoluteBounds="5.89, 3.71, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(5 : 4.57774983723958); (5.875 : 4.57774983723958)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/railDataContext/Booking/Booking_Payment" />
+      <nodes>
+        <classShapeMoniker Id="718a979d-3214-4869-8c9d-e919e356f323" />
+        <classShapeMoniker Id="af13429d-b5b1-408f-a216-deb787744216" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(6.8125 : 2.84780110677083); (6.8125 : 3.25)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/railDataContext/Card/Card_Payment" />
+      <nodes>
+        <classShapeMoniker Id="daf44bc5-d000-4ba1-8503-d56dd8c5d122" />
+        <classShapeMoniker Id="af13429d-b5b1-408f-a216-deb787744216" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="fc8e4c46-c8d0-4cc5-a0df-b85e64914981" absoluteBounds="0.5, 0.5, 2, 1.7708968098958331">
+      <DataClassMoniker Name="/railDataContext/Schedule" />
+      <nestedChildShapes>
+        <elementListCompartment Id="48540178-718a-4e7b-ae59-85630df48b7e" absoluteBounds="0.51500000000000012, 0.96, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.5 : 1.38544840494792); (2.875 : 1.38544840494792); (2.875 : 3.09780110677083); (3.499998 : 3.09780110677083); (3.499998 : 3.75)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/railDataContext/Schedule/Schedule_Booking" />
+      <nodes>
+        <classShapeMoniker Id="fc8e4c46-c8d0-4cc5-a0df-b85e64914981" />
+        <classShapeMoniker Id="718a979d-3214-4869-8c9d-e919e356f323" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="1435ef71-7517-4d5f-9ffe-473b124506fe" absoluteBounds="5.875, 5.875, 2, 2.5401025390625">
+      <DataClassMoniker Name="/railDataContext/Staff" />
+      <nestedChildShapes>
+        <elementListCompartment Id="14306d2a-8f6b-488d-afdd-bd7486713602" absoluteBounds="5.8900000000000006, 6.335, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(6.875 : 5.875); (6.875 : 5.40549967447917)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/railDataContext/Staff/Staff_Payment" />
+      <nodes>
+        <classShapeMoniker Id="1435ef71-7517-4d5f-9ffe-473b124506fe" />
+        <classShapeMoniker Id="af13429d-b5b1-408f-a216-deb787744216" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="9fb292d7-49b2-4e31-811a-f40b79b3921a" absoluteBounds="0.5, 3.125, 2, 1.3862939453125">
+      <DataClassMoniker Name="/railDataContext/Station" />
+      <nestedChildShapes>
+        <elementListCompartment Id="7a21cc32-4ad7-4203-ab9a-7165cfdd93b5" absoluteBounds="0.51500000000000012, 3.585, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.5 : 4.13064697265625); (3 : 4.13064697265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/railDataContext/Station/Station_Booking" />
+      <nodes>
+        <classShapeMoniker Id="9fb292d7-49b2-4e31-811a-f40b79b3921a" />
+        <classShapeMoniker Id="718a979d-3214-4869-8c9d-e919e356f323" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.5 : 3.87782348632813); (3 : 3.87782348632813)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/railDataContext/Station/Station_Booking1" />
+      <nodes>
+        <classShapeMoniker Id="9fb292d7-49b2-4e31-811a-f40b79b3921a" />
+        <classShapeMoniker Id="718a979d-3214-4869-8c9d-e919e356f323" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(1.5 : 3.125); (1.5 : 2.27089680989583)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/railDataContext/Station/Station_Schedule" />
+      <nodes>
+        <classShapeMoniker Id="9fb292d7-49b2-4e31-811a-f40b79b3921a" />
+        <classShapeMoniker Id="fc8e4c46-c8d0-4cc5-a0df-b85e64914981" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.0625 : 3.125); (2.0625 : 2.27089680989583)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/railDataContext/Station/Station_Schedule1" />
+      <nodes>
+        <classShapeMoniker Id="9fb292d7-49b2-4e31-811a-f40b79b3921a" />
+        <classShapeMoniker Id="fc8e4c46-c8d0-4cc5-a0df-b85e64914981" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

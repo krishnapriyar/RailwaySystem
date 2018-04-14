@@ -88,11 +88,36 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ApplicationEvents.vb" />
     <Compile Include="FrmBook.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmBook.Designer.vb">
       <DependentUpon>FrmBook.vb</DependentUpon>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCustSearchList.Designer.vb">
+      <DependentUpon>FrmCustSearchList.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmCustSearchList.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmNextBook.Designer.vb">
+      <DependentUpon>FrmNextBook.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmNextBook.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmSearchBooking.Designer.vb">
+      <DependentUpon>FrmSearchBooking.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmSearchBooking.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmStaffMenu.Designer.vb">
+      <DependentUpon>FrmStaffMenu.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmStaffMenu.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -117,8 +142,23 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <None Include="rail.dbml.layout">
+      <DependentUpon>rail.dbml</DependentUpon>
+    </None>
     <EmbeddedResource Include="FrmBook.resx">
       <DependentUpon>FrmBook.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmCustSearchList.resx">
+      <DependentUpon>FrmCustSearchList.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmNextBook.resx">
+      <DependentUpon>FrmNextBook.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmSearchBooking.resx">
+      <DependentUpon>FrmSearchBooking.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmStaffMenu.resx">
+      <DependentUpon>FrmStaffMenu.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
@@ -126,8 +166,10 @@
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <None Include="rail.dbml.layout">
-      <DependentUpon>rail.dbml</DependentUpon>
+    <None Include="rail.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>rail.designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
     </None>
   </ItemGroup>
   <ItemGroup>
@@ -141,11 +183,6 @@
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
     <None Include="App.config" />
-    <None Include="rail.dbml">
-      <Generator>MSLinqToSQLGenerator</Generator>
-      <LastGenOutput>rail.designer.vb</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <Content Include="rail.mdf" />

@@ -9,10 +9,10 @@
       <Column Name="custID" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="scheduleID" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Association Name="Booking_Payment" Member="Payments" ThisKey="bookingID" OtherKey="bookingID" Type="Payment" />
-      <Association Name="Customer_Booking" Member="Customer" ThisKey="custID" OtherKey="custID" Type="Customer" IsForeignKey="true" />
-      <Association Name="Schedule_Booking" Member="Schedule" ThisKey="scheduleID" OtherKey="scheduleID" Type="Schedule" IsForeignKey="true" />
       <Association Name="Station_Booking" Member="Station" ThisKey="destination" OtherKey="stationID" Type="Station" IsForeignKey="true" />
       <Association Name="Station_Booking1" Member="Station1" ThisKey="source" OtherKey="stationID" Type="Station" IsForeignKey="true" />
+      <Association Name="Schedule_Booking" Member="Schedule" ThisKey="scheduleID" OtherKey="scheduleID" Type="Schedule" IsForeignKey="true" />
+      <Association Name="Customer_Booking" Member="Customer" ThisKey="custID" OtherKey="custID" Type="Customer" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.Card" Member="Cards">
@@ -26,19 +26,6 @@
       <Column Name="issuer" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Column Name="balance" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
       <Association Name="Card_Payment" Member="Payments" ThisKey="cardNo" OtherKey="cardNo" Type="Payment" />
-    </Type>
-  </Table>
-  <Table Name="dbo.Customer" Member="Customers">
-    <Type Name="Customer">
-      <Column Name="custID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="custName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="custIC" Type="System.String" DbType="Char(13)" CanBeNull="true" />
-      <Column Name="custPhone" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
-      <Column Name="custEmail" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="custAddress" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
-      <Column Name="custType" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
-      <Column Name="custPassword" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
-      <Association Name="Customer_Booking" Member="Bookings" ThisKey="custID" OtherKey="custID" Type="Booking" />
     </Type>
   </Table>
   <Table Name="dbo.Payment" Member="Payments">
@@ -55,16 +42,15 @@
       <Association Name="Staff_Payment" Member="Staff" ThisKey="staffInCharge" OtherKey="staffID" Type="Staff" IsForeignKey="true" />
     </Type>
   </Table>
-  <Table Name="dbo.Schedule" Member="Schedules">
-    <Type Name="Schedule">
-      <Column Name="scheduleID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="startTime" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
-      <Column Name="endTime" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
-      <Column Name="firstStationID" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="lastStationID" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Association Name="Schedule_Booking" Member="Bookings" ThisKey="scheduleID" OtherKey="scheduleID" Type="Booking" />
-      <Association Name="Station_Schedule" Member="Station" ThisKey="firstStationID" OtherKey="stationID" Type="Station" IsForeignKey="true" />
-      <Association Name="Station_Schedule1" Member="Station1" ThisKey="lastStationID" OtherKey="stationID" Type="Station" IsForeignKey="true" />
+  <Table Name="dbo.Station" Member="Stations">
+    <Type Name="Station">
+      <Column Name="stationID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="stationName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Location" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Association Name="Station_Booking" Member="Bookings" ThisKey="stationID" OtherKey="destination" Type="Booking" />
+      <Association Name="Station_Booking1" Member="Bookings1" ThisKey="stationID" OtherKey="source" Type="Booking" />
+      <Association Name="Station_Schedule" Member="Schedules" ThisKey="stationID" OtherKey="firstStationID" Type="Schedule" />
+      <Association Name="Station_Schedule1" Member="Schedules1" ThisKey="stationID" OtherKey="lastStationID" Type="Schedule" />
     </Type>
   </Table>
   <Table Name="dbo.Staff" Member="Staffs">
@@ -81,15 +67,29 @@
       <Association Name="Staff_Payment" Member="Payments" ThisKey="staffID" OtherKey="staffInCharge" Type="Payment" />
     </Type>
   </Table>
-  <Table Name="dbo.Station" Member="Stations">
-    <Type Name="Station">
-      <Column Name="stationID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="stationName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="Location" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
-      <Association Name="Station_Booking" Member="Bookings" ThisKey="stationID" OtherKey="destination" Type="Booking" />
-      <Association Name="Station_Booking1" Member="Bookings1" ThisKey="stationID" OtherKey="source" Type="Booking" />
-      <Association Name="Station_Schedule" Member="Schedules" ThisKey="stationID" OtherKey="firstStationID" Type="Schedule" />
-      <Association Name="Station_Schedule1" Member="Schedules1" ThisKey="stationID" OtherKey="lastStationID" Type="Schedule" />
+  <Table Name="dbo.Schedule" Member="Schedules">
+    <Type Name="Schedule">
+      <Column Name="scheduleID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="startTime" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
+      <Column Name="endTime" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
+      <Column Name="firstStationID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="lastStationID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Schedule_Booking" Member="Bookings" ThisKey="scheduleID" OtherKey="scheduleID" Type="Booking" />
+      <Association Name="Station_Schedule" Member="Station" ThisKey="firstStationID" OtherKey="stationID" Type="Station" IsForeignKey="true" />
+      <Association Name="Station_Schedule1" Member="Station1" ThisKey="lastStationID" OtherKey="stationID" Type="Station" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Customer" Member="Customers">
+    <Type Name="Customer">
+      <Column Name="custID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="custName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="custIC" Type="System.String" DbType="Char(13)" CanBeNull="true" />
+      <Column Name="custPhone" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="custEmail" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="custAddress" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="custType" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="custPassword" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Association Name="Customer_Booking" Member="Bookings" ThisKey="custID" OtherKey="custID" Type="Booking" />
     </Type>
   </Table>
 </Database>

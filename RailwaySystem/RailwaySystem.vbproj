@@ -61,12 +61,23 @@
   <PropertyGroup>
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>My Project\app.manifest</ApplicationManifest>
+  </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.Types.14.0.314.76\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.Linq" />
     <Reference Include="System.Deployment" />
+    <Reference Include="System.DirectoryServices" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
@@ -96,16 +107,16 @@
       <DependentUpon>FrmBook.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="FrmBookReport.Designer.vb">
+      <DependentUpon>FrmBookReport.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmBookReport.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FrmCustSearchList.Designer.vb">
       <DependentUpon>FrmCustSearchList.vb</DependentUpon>
     </Compile>
     <Compile Include="FrmCustSearchList.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmNextBook.Designer.vb">
-      <DependentUpon>FrmNextBook.vb</DependentUpon>
-    </Compile>
-    <Compile Include="FrmNextBook.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmSearchBooking.Designer.vb">
@@ -140,19 +151,27 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>rail.dbml</DependentUpon>
     </Compile>
+    <Compile Include="railDataSet.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>railDataSet.xsd</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
+    <None Include="My Project\app.manifest" />
+    <None Include="packages.config" />
     <None Include="rail.dbml.layout">
       <DependentUpon>rail.dbml</DependentUpon>
     </None>
+    <EmbeddedResource Include="BookingReport1.rdlc" />
     <EmbeddedResource Include="FrmBook.resx">
       <DependentUpon>FrmBook.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmBookReport.resx">
+      <DependentUpon>FrmBookReport.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmCustSearchList.resx">
       <DependentUpon>FrmCustSearchList.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FrmNextBook.resx">
-      <DependentUpon>FrmNextBook.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmSearchBooking.resx">
       <DependentUpon>FrmSearchBooking.vb</DependentUpon>
@@ -171,6 +190,17 @@
       <LastGenOutput>rail.designer.vb</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
+    <None Include="railDataSet.xsc">
+      <DependentUpon>railDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="railDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>railDataSet.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="railDataSet.xss">
+      <DependentUpon>railDataSet.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="My Project\Application.myapp">
@@ -188,6 +218,20 @@
     <Content Include="rail.mdf" />
     <Content Include="rail_log.ldf">
       <DependentUpon>rail.mdf</DependentUpon>
+    </Content>
+    <Content Include="SqlServerTypes\Loader.cs" />
+    <Content Include="SqlServerTypes\readme.htm" />
+    <Content Include="SqlServerTypes\x64\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x64\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
   <ItemGroup>

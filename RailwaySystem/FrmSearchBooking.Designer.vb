@@ -25,11 +25,11 @@ Partial Class FrmSearchBooking
         Me.dgvBooking = New System.Windows.Forms.DataGridView()
         Me.btnAction = New System.Windows.Forms.Button()
         Me.btnBack = New System.Windows.Forms.Button()
-        Me.lblSearch = New System.Windows.Forms.TextBox()
-        Me.btnSearch = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.radCust = New System.Windows.Forms.RadioButton()
         Me.radSchedule = New System.Windows.Forms.RadioButton()
+        Me.cboCriteria = New System.Windows.Forms.ComboBox()
+        Me.radAll = New System.Windows.Forms.RadioButton()
         CType(Me.dgvBooking, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -62,26 +62,10 @@ Partial Class FrmSearchBooking
         Me.btnBack.Text = "Back"
         Me.btnBack.UseVisualStyleBackColor = True
         '
-        'lblSearch
-        '
-        Me.lblSearch.Location = New System.Drawing.Point(277, 30)
-        Me.lblSearch.Name = "lblSearch"
-        Me.lblSearch.Size = New System.Drawing.Size(334, 20)
-        Me.lblSearch.TabIndex = 4
-        '
-        'btnSearch
-        '
-        Me.btnSearch.Location = New System.Drawing.Point(641, 30)
-        Me.btnSearch.Name = "btnSearch"
-        Me.btnSearch.Size = New System.Drawing.Size(75, 23)
-        Me.btnSearch.TabIndex = 5
-        Me.btnSearch.Text = "Search"
-        Me.btnSearch.UseVisualStyleBackColor = True
-        '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(12, 30)
+        Me.Label1.Location = New System.Drawing.Point(21, 40)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(65, 13)
         Me.Label1.TabIndex = 7
@@ -90,7 +74,7 @@ Partial Class FrmSearchBooking
         'radCust
         '
         Me.radCust.AutoSize = True
-        Me.radCust.Location = New System.Drawing.Point(84, 30)
+        Me.radCust.Location = New System.Drawing.Point(168, 38)
         Me.radCust.Name = "radCust"
         Me.radCust.Size = New System.Drawing.Size(69, 17)
         Me.radCust.TabIndex = 8
@@ -101,7 +85,7 @@ Partial Class FrmSearchBooking
         'radSchedule
         '
         Me.radSchedule.AutoSize = True
-        Me.radSchedule.Location = New System.Drawing.Point(173, 30)
+        Me.radSchedule.Location = New System.Drawing.Point(253, 38)
         Me.radSchedule.Name = "radSchedule"
         Me.radSchedule.Size = New System.Drawing.Size(70, 17)
         Me.radSchedule.TabIndex = 9
@@ -109,19 +93,40 @@ Partial Class FrmSearchBooking
         Me.radSchedule.Text = "Schedule"
         Me.radSchedule.UseVisualStyleBackColor = True
         '
+        'cboCriteria
+        '
+        Me.cboCriteria.Enabled = False
+        Me.cboCriteria.FormattingEnabled = True
+        Me.cboCriteria.Location = New System.Drawing.Point(408, 38)
+        Me.cboCriteria.Name = "cboCriteria"
+        Me.cboCriteria.Size = New System.Drawing.Size(318, 21)
+        Me.cboCriteria.TabIndex = 10
+        '
+        'radAll
+        '
+        Me.radAll.AutoSize = True
+        Me.radAll.Location = New System.Drawing.Point(101, 38)
+        Me.radAll.Name = "radAll"
+        Me.radAll.Size = New System.Drawing.Size(51, 17)
+        Me.radAll.TabIndex = 11
+        Me.radAll.TabStop = True
+        Me.radAll.Text = "None"
+        Me.radAll.UseVisualStyleBackColor = True
+        '
         'FrmSearchBooking
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(746, 534)
+        Me.Controls.Add(Me.radAll)
+        Me.Controls.Add(Me.cboCriteria)
         Me.Controls.Add(Me.radSchedule)
         Me.Controls.Add(Me.radCust)
         Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(Me.btnSearch)
-        Me.Controls.Add(Me.lblSearch)
         Me.Controls.Add(Me.btnBack)
         Me.Controls.Add(Me.btnAction)
         Me.Controls.Add(Me.dgvBooking)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Name = "FrmSearchBooking"
         Me.Text = "Search Bookings"
         CType(Me.dgvBooking, System.ComponentModel.ISupportInitialize).EndInit()
@@ -133,9 +138,9 @@ Partial Class FrmSearchBooking
     Friend WithEvents dgvBooking As DataGridView
     Friend WithEvents btnAction As Button
     Friend WithEvents btnBack As Button
-    Friend WithEvents lblSearch As TextBox
-    Friend WithEvents btnSearch As Button
     Friend WithEvents Label1 As Label
     Friend WithEvents radCust As RadioButton
     Friend WithEvents radSchedule As RadioButton
+    Friend WithEvents cboCriteria As ComboBox
+    Friend WithEvents radAll As RadioButton
 End Class

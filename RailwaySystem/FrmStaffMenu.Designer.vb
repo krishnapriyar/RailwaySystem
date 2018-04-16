@@ -24,6 +24,7 @@ Partial Class FrmStaffMenu
     Private Sub InitializeComponent()
         Me.btnBook = New System.Windows.Forms.Button()
         Me.btnSearchBook = New System.Windows.Forms.Button()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'btnBook
@@ -44,11 +45,21 @@ Partial Class FrmStaffMenu
         Me.btnSearchBook.Text = "Search Bookings"
         Me.btnSearchBook.UseVisualStyleBackColor = True
         '
+        'Button1
+        '
+        Me.Button1.Location = New System.Drawing.Point(202, 235)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(75, 23)
+        Me.Button1.TabIndex = 2
+        Me.Button1.Text = "Button1"
+        Me.Button1.UseVisualStyleBackColor = True
+        '
         'FrmStaffMenu
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(511, 448)
+        Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.btnSearchBook)
         Me.Controls.Add(Me.btnBook)
         Me.Name = "FrmStaffMenu"
@@ -59,4 +70,5 @@ Partial Class FrmStaffMenu
 
     Friend WithEvents btnBook As Button
     Friend WithEvents btnSearchBook As Button
+    Friend WithEvents Button1 As Button
 End Class

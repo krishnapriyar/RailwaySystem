@@ -24,7 +24,9 @@ Partial Class FrmBook
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Me.grpTicket = New System.Windows.Forms.GroupBox()
-        Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
+        Me.dudQuantity = New System.Windows.Forms.DomainUpDown()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.dtpDeparture = New System.Windows.Forms.DateTimePicker()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.btnClose = New System.Windows.Forms.Button()
         Me.btnBook = New System.Windows.Forms.Button()
@@ -38,7 +40,7 @@ Partial Class FrmBook
         Me.lblSource = New System.Windows.Forms.Label()
         Me.lblBookId = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.grpCust = New System.Windows.Forms.GroupBox()
         Me.btnCreate = New System.Windows.Forms.Button()
         Me.lblCustType = New System.Windows.Forms.Label()
         Me.lblCustAdd = New System.Windows.Forms.Label()
@@ -57,15 +59,18 @@ Partial Class FrmBook
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.ttp1 = New System.Windows.Forms.ToolTip(Me.components)
+        Me.err = New System.Windows.Forms.ErrorProvider(Me.components)
         Me.grpTicket.SuspendLayout()
-        Me.GroupBox2.SuspendLayout()
+        Me.grpCust.SuspendLayout()
+        CType(Me.err, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'grpTicket
         '
-        Me.grpTicket.Controls.Add(Me.DateTimePicker1)
+        Me.grpTicket.Controls.Add(Me.dudQuantity)
+        Me.grpTicket.Controls.Add(Me.Label4)
+        Me.grpTicket.Controls.Add(Me.dtpDeparture)
         Me.grpTicket.Controls.Add(Me.Label3)
-        Me.grpTicket.Controls.Add(Me.btnClose)
         Me.grpTicket.Controls.Add(Me.btnBook)
         Me.grpTicket.Controls.Add(Me.cboSeatType)
         Me.grpTicket.Controls.Add(Me.Label6)
@@ -85,14 +90,40 @@ Partial Class FrmBook
         Me.grpTicket.TabStop = False
         Me.grpTicket.Text = "Ticket Information"
         '
-        'DateTimePicker1
+        'dudQuantity
         '
-        Me.DateTimePicker1.CustomFormat = ""
-        Me.DateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.DateTimePicker1.Location = New System.Drawing.Point(112, 161)
-        Me.DateTimePicker1.Name = "DateTimePicker1"
-        Me.DateTimePicker1.Size = New System.Drawing.Size(200, 20)
-        Me.DateTimePicker1.TabIndex = 12
+        Me.dudQuantity.Items.Add("8")
+        Me.dudQuantity.Items.Add("7")
+        Me.dudQuantity.Items.Add("6")
+        Me.dudQuantity.Items.Add("5")
+        Me.dudQuantity.Items.Add("4")
+        Me.dudQuantity.Items.Add("3")
+        Me.dudQuantity.Items.Add("2")
+        Me.dudQuantity.Items.Add("1")
+        Me.dudQuantity.Location = New System.Drawing.Point(108, 297)
+        Me.dudQuantity.Name = "dudQuantity"
+        Me.dudQuantity.Size = New System.Drawing.Size(120, 20)
+        Me.dudQuantity.TabIndex = 14
+        Me.dudQuantity.Text = "0"
+        Me.dudQuantity.Wrap = True
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Location = New System.Drawing.Point(16, 299)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(55, 13)
+        Me.Label4.TabIndex = 13
+        Me.Label4.Text = "Quantity : "
+        '
+        'dtpDeparture
+        '
+        Me.dtpDeparture.CustomFormat = ""
+        Me.dtpDeparture.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.dtpDeparture.Location = New System.Drawing.Point(112, 161)
+        Me.dtpDeparture.Name = "dtpDeparture"
+        Me.dtpDeparture.Size = New System.Drawing.Size(200, 20)
+        Me.dtpDeparture.TabIndex = 12
         '
         'Label3
         '
@@ -105,16 +136,16 @@ Partial Class FrmBook
         '
         'btnClose
         '
-        Me.btnClose.Location = New System.Drawing.Point(188, 365)
+        Me.btnClose.Location = New System.Drawing.Point(271, 362)
         Me.btnClose.Name = "btnClose"
-        Me.btnClose.Size = New System.Drawing.Size(102, 38)
+        Me.btnClose.Size = New System.Drawing.Size(118, 38)
         Me.btnClose.TabIndex = 10
         Me.btnClose.Text = "Back"
         Me.btnClose.UseVisualStyleBackColor = True
         '
         'btnBook
         '
-        Me.btnBook.Location = New System.Drawing.Point(39, 365)
+        Me.btnBook.Location = New System.Drawing.Point(123, 362)
         Me.btnBook.Name = "btnBook"
         Me.btnBook.Size = New System.Drawing.Size(105, 38)
         Me.btnBook.TabIndex = 2
@@ -208,37 +239,38 @@ Partial Class FrmBook
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "Booking ID : "
         '
-        'GroupBox2
+        'grpCust
         '
-        Me.GroupBox2.Controls.Add(Me.btnCreate)
-        Me.GroupBox2.Controls.Add(Me.lblCustType)
-        Me.GroupBox2.Controls.Add(Me.lblCustAdd)
-        Me.GroupBox2.Controls.Add(Me.lblCustEmail)
-        Me.GroupBox2.Controls.Add(Me.lblCustPhone)
-        Me.GroupBox2.Controls.Add(Me.lblCustIC)
-        Me.GroupBox2.Controls.Add(Me.lblCustName)
-        Me.GroupBox2.Controls.Add(Me.btnSearch)
-        Me.GroupBox2.Controls.Add(Me.txtSearch)
-        Me.GroupBox2.Controls.Add(Me.lblCustId)
-        Me.GroupBox2.Controls.Add(Me.Label14)
-        Me.GroupBox2.Controls.Add(Me.Label9)
-        Me.GroupBox2.Controls.Add(Me.Label10)
-        Me.GroupBox2.Controls.Add(Me.Label11)
-        Me.GroupBox2.Controls.Add(Me.Label8)
-        Me.GroupBox2.Controls.Add(Me.Label7)
-        Me.GroupBox2.Controls.Add(Me.Label2)
-        Me.GroupBox2.Location = New System.Drawing.Point(12, 12)
-        Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(418, 422)
-        Me.GroupBox2.TabIndex = 1
-        Me.GroupBox2.TabStop = False
-        Me.GroupBox2.Text = "Customer Information"
+        Me.grpCust.Controls.Add(Me.btnCreate)
+        Me.grpCust.Controls.Add(Me.lblCustType)
+        Me.grpCust.Controls.Add(Me.lblCustAdd)
+        Me.grpCust.Controls.Add(Me.lblCustEmail)
+        Me.grpCust.Controls.Add(Me.btnClose)
+        Me.grpCust.Controls.Add(Me.lblCustPhone)
+        Me.grpCust.Controls.Add(Me.lblCustIC)
+        Me.grpCust.Controls.Add(Me.lblCustName)
+        Me.grpCust.Controls.Add(Me.btnSearch)
+        Me.grpCust.Controls.Add(Me.txtSearch)
+        Me.grpCust.Controls.Add(Me.lblCustId)
+        Me.grpCust.Controls.Add(Me.Label14)
+        Me.grpCust.Controls.Add(Me.Label9)
+        Me.grpCust.Controls.Add(Me.Label10)
+        Me.grpCust.Controls.Add(Me.Label11)
+        Me.grpCust.Controls.Add(Me.Label8)
+        Me.grpCust.Controls.Add(Me.Label7)
+        Me.grpCust.Controls.Add(Me.Label2)
+        Me.grpCust.Location = New System.Drawing.Point(12, 12)
+        Me.grpCust.Name = "grpCust"
+        Me.grpCust.Size = New System.Drawing.Size(418, 422)
+        Me.grpCust.TabIndex = 1
+        Me.grpCust.TabStop = False
+        Me.grpCust.Text = "Customer Information"
         '
         'btnCreate
         '
-        Me.btnCreate.Location = New System.Drawing.Point(107, 362)
+        Me.btnCreate.Location = New System.Drawing.Point(71, 362)
         Me.btnCreate.Name = "btnCreate"
-        Me.btnCreate.Size = New System.Drawing.Size(161, 44)
+        Me.btnCreate.Size = New System.Drawing.Size(119, 38)
         Me.btnCreate.TabIndex = 22
         Me.btnCreate.Text = "Create New Customer"
         Me.btnCreate.UseVisualStyleBackColor = True
@@ -248,57 +280,52 @@ Partial Class FrmBook
         Me.lblCustType.AutoSize = True
         Me.lblCustType.Location = New System.Drawing.Point(131, 311)
         Me.lblCustType.Name = "lblCustType"
-        Me.lblCustType.Size = New System.Drawing.Size(31, 13)
+        Me.lblCustType.Size = New System.Drawing.Size(0, 13)
         Me.lblCustType.TabIndex = 21
-        Me.lblCustType.Text = "Type"
         '
         'lblCustAdd
         '
         Me.lblCustAdd.AutoSize = True
         Me.lblCustAdd.Location = New System.Drawing.Point(131, 259)
         Me.lblCustAdd.Name = "lblCustAdd"
-        Me.lblCustAdd.Size = New System.Drawing.Size(45, 13)
+        Me.lblCustAdd.Size = New System.Drawing.Size(0, 13)
         Me.lblCustAdd.TabIndex = 20
-        Me.lblCustAdd.Text = "Address"
         '
         'lblCustEmail
         '
         Me.lblCustEmail.AutoSize = True
         Me.lblCustEmail.Location = New System.Drawing.Point(131, 227)
         Me.lblCustEmail.Name = "lblCustEmail"
-        Me.lblCustEmail.Size = New System.Drawing.Size(32, 13)
+        Me.lblCustEmail.Size = New System.Drawing.Size(0, 13)
         Me.lblCustEmail.TabIndex = 19
-        Me.lblCustEmail.Text = "Email"
         '
         'lblCustPhone
         '
         Me.lblCustPhone.AutoSize = True
         Me.lblCustPhone.Location = New System.Drawing.Point(131, 192)
         Me.lblCustPhone.Name = "lblCustPhone"
-        Me.lblCustPhone.Size = New System.Drawing.Size(38, 13)
+        Me.lblCustPhone.Size = New System.Drawing.Size(0, 13)
         Me.lblCustPhone.TabIndex = 18
-        Me.lblCustPhone.Text = "Phone"
         '
         'lblCustIC
         '
         Me.lblCustIC.AutoSize = True
         Me.lblCustIC.Location = New System.Drawing.Point(131, 161)
         Me.lblCustIC.Name = "lblCustIC"
-        Me.lblCustIC.Size = New System.Drawing.Size(17, 13)
+        Me.lblCustIC.Size = New System.Drawing.Size(0, 13)
         Me.lblCustIC.TabIndex = 17
-        Me.lblCustIC.Text = "IC"
         '
         'lblCustName
         '
         Me.lblCustName.AutoSize = True
         Me.lblCustName.Location = New System.Drawing.Point(131, 131)
         Me.lblCustName.Name = "lblCustName"
-        Me.lblCustName.Size = New System.Drawing.Size(35, 13)
+        Me.lblCustName.Size = New System.Drawing.Size(0, 13)
         Me.lblCustName.TabIndex = 16
-        Me.lblCustName.Text = "Name"
         '
         'btnSearch
         '
+        Me.btnSearch.CausesValidation = False
         Me.btnSearch.Location = New System.Drawing.Point(326, 39)
         Me.btnSearch.Name = "btnSearch"
         Me.btnSearch.Size = New System.Drawing.Size(75, 23)
@@ -318,9 +345,8 @@ Partial Class FrmBook
         Me.lblCustId.AutoSize = True
         Me.lblCustId.Location = New System.Drawing.Point(131, 98)
         Me.lblCustId.Name = "lblCustId"
-        Me.lblCustId.Size = New System.Drawing.Size(18, 13)
+        Me.lblCustId.Size = New System.Drawing.Size(0, 13)
         Me.lblCustId.TabIndex = 7
-        Me.lblCustId.Text = "ID"
         '
         'Label14
         '
@@ -385,25 +411,31 @@ Partial Class FrmBook
         Me.Label2.TabIndex = 0
         Me.Label2.Text = "Customer ID : "
         '
+        'err
+        '
+        Me.err.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink
+        Me.err.ContainerControl = Me
+        '
         'FrmBook
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(780, 443)
-        Me.Controls.Add(Me.GroupBox2)
+        Me.Controls.Add(Me.grpCust)
         Me.Controls.Add(Me.grpTicket)
         Me.Name = "FrmBook"
         Me.Text = "Book Tickets"
         Me.grpTicket.ResumeLayout(False)
         Me.grpTicket.PerformLayout()
-        Me.GroupBox2.ResumeLayout(False)
-        Me.GroupBox2.PerformLayout()
+        Me.grpCust.ResumeLayout(False)
+        Me.grpCust.PerformLayout()
+        CType(Me.err, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
 
     Friend WithEvents grpTicket As GroupBox
-    Friend WithEvents GroupBox2 As GroupBox
+    Friend WithEvents grpCust As GroupBox
     Friend WithEvents lblSource As Label
     Friend WithEvents lblBookId As Label
     Friend WithEvents Label1 As Label
@@ -434,6 +466,9 @@ Partial Class FrmBook
     Friend WithEvents ttp1 As ToolTip
     Friend WithEvents btnClose As Button
     Friend WithEvents btnBook As Button
-    Friend WithEvents DateTimePicker1 As DateTimePicker
+    Friend WithEvents dtpDeparture As DateTimePicker
     Friend WithEvents Label3 As Label
+    Friend WithEvents dudQuantity As DomainUpDown
+    Friend WithEvents Label4 As Label
+    Friend WithEvents err As ErrorProvider
 End Class
